@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Login Now!</title>
+    <link rel="stylesheet" href="style.css" />
+    <header>
+      <a href="home.html">
+        <img class="logo" src="images/logoooo.png" />
+      </a>
+    </header>
+
+    <style>
+      body {
+        background-color: #111827;
+        background-image:
+          radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+          radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+          radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+        height: 100vh;
+      }
+      header {
+        background: transparent;
+        box-shadow: none;
+        border: none;
+      }
+      .logo {
+        filter: brightness(0) invert(1); /* Makes the logo white for the dark bg */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="login-container">
+      <h2>Welcome!</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Name: </label>
+          <input type="text" id="name" placeholder="Enter your name" required />
+        </div>
+        <div class="form-group">
+          <label>Email: </label>
+          <input
+            type="text"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label>Mobile Number: </label>
+          <input
+            type="tel"
+            id="mobile"
+            placeholder="Enter your Mobile No."
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label>I am a:</label>
+          <select id="role">
+            <option value="customer">Customer</option>
+            <option value="vendor">Vendor</option>
+          </select>
+        </div>
+        <button
+          type="button"
+          class="btn-primary"
+          onclick="handleLogin()"
+          style="width: 100%"
+        >
+          Sign Up
+        </button>
+      </form>
+    </div>
+
+    <script>
+      function handleLogin() {
+        const role = document.getElementById("role").value;
+        const name = document.getElementById("name").value;
+
+        localStorage.setItem("currentUser", name);
+
+        if (role === "vendor") {
+          window.location.href = "vendor.html";
+        } else {
+          window.location.href = "customer.html";
+        }
+      }
+    </script>
+  </body>
+</html>

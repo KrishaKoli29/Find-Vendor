@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vendor Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img class="logo" src="images/logoooo.png" alt="Logo">
+        <a href="login.html" class="btn-primary" style="background-color: #666;">Logout</a>
+    </header>
+
+    <div class="app-container">
+        <div class="control-panel" id="vendor-panel">
+            <div class="panel-section">
+                <h3>Your Cart Details</h3>
+                <div class="form-group">
+                    <label>Shop/Cart Name:</label>
+                    <input type="text" id="vendorName" placeholder="e.g., Joe's Hotdogs">
+                </div>
+                <div class="form-group">
+                    <label>Currently Selling:</label>
+                    <input type="text" id="vendorItems" placeholder="e.g., Hotdogs, Soda, Chips">
+                </div>
+            </div>
+            
+            <div class="panel-section">
+                <h3>Availability</h3>
+                <p>Status: <strong id="statusText" style="color: red;">Offline</strong></p>
+                <button id="toggleBtn" class="btn-primary" onclick="toggleOnlineStatus()">Go Online & Share Location</button>
+            </div>
+        </div>
+        
+        <div id="map"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

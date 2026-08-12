@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img class="logo" src="images/logoooo.png" alt="Logo"">
+        <div>
+            <span id="userNameDisplay" style="margin-right: 15px; font-weight: bold;"></span>
+            <a href="login.html" class="btn-primary" style="background-color: #666;">Logout</a>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <div class="control-panel" id="customer-panel">
+            <div class="panel-section">
+                <h3>Find Vendors Nearby</h3>
+                <div class="form-group">
+                    <label>Looking for:</label>
+                    <input type="text" id="searchItem" placeholder="e.g., Tacos, Coffee, Ice Cream">
+                </div>
+                <button class="btn-primary" onclick="searchVendors()">Search</button>
+            </div>
+            <div class="panel-section" id="vendor-results">
+                <h3>Live Vendors</h3>
+                <p>Waiting for vendors to come online...</p>
+            </div>
+        </div>
+        
+        <div id="map"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
