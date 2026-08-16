@@ -1,0 +1,30 @@
+name: Daily Auto-Commit
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every day. You can adjust the cron schedule to your timezone.
+    - cron: '0 0 * * *' 
+  workflow_dispatch: # Allows you to manually trigger the action for testing
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Grants permission to push code
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Git configuration
+        run: |
+          # Replace these with your GitHub email and username
+          git config --local user.email krishakoli1104@gmail.com
+          git config --local user.name KrishaKoli29
+          
+      - name: Create empty commit
+        run: |
+          git commit --allow-empty -m "Auto-commit: Daily streak"
+        
+      - name: Push commit
+        run: git push
